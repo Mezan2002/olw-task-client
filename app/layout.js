@@ -9,7 +9,6 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-
 export const metadata = {
   title: "One Little Web",
   description: "One Little Web",
@@ -17,10 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${dmSans.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${dmSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
