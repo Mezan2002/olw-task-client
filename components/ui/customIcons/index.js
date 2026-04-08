@@ -10,3 +10,5 @@ export { default as Check } from "./Check";
 export { default as Support } from "./Support";
 export { default as ConnectUser } from "./ConnectUser";
 export { default as AddUser } from "./AddUser";
+export { default as X } from "./X";
+export { default as CheckPricingCard } from "./CheckPricingCard";
