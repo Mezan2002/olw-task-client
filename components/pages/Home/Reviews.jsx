@@ -1,47 +1,40 @@
+"use client";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import SectionHeader from "@/components/shared/SectionHeader";
+import { Star } from "@/components/ui/customIcons";
 
-const ReviewCard = ({ active, name, text, image, bgColor, stars }) => {
+const ReviewCard = ({ active, name, text, image, bgColor, stars, onClick }) => {
   return (
     <div
-      className={`p-7 md:p-9 rounded-[20px] flex gap-5 shrink-0 w-[380px] md:w-[460px] transition-all duration-300 ${
+      onClick={onClick}
+      className={`p-8 md:p-[42px] rounded-[24px] flex flex-col md:flex-row items-center gap-6 md:gap-7 shrink-0 w-[340px] md:w-[640px] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer snap-center ${
         active
-          ? "bg-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] scale-[1.02] z-10"
-          : "bg-[#F8F9FA] scale-100 z-0"
+          ? "bg-white shadow-[0_25px_65px_-15px_rgba(0,0,0,0.08)] scale-100 z-20"
+          : "bg-[#FAFAFA] opacity-80 scale-[0.92] z-0 hover:opacity-100"
       }`}
     >
       <div
-        className={`w-[75px] h-[75px] md:w-[90px] md:h-[90px] shrink-0 rounded-full overflow-hidden ${bgColor}`}
+        className={`w-[85px] h-[85px] md:w-[120px] md:h-[120px] shrink-0 rounded-full overflow-hidden flex items-center justify-center ${bgColor}`}
       >
         <Image
           src={image}
           alt={name}
-          width={90}
-          height={90}
+          width={120}
+          height={120}
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex flex-col justify-center">
-        <h4 className="font-bold text-[17px] md:text-[19px] text-[#1A1A1A] mb-1.5">
+      <div className="flex flex-col text-center md:text-left flex-1">
+        <h4 className="font-extrabold text-[18px] md:text-[24px] text-[#1A1A1A] mb-1.5 md:mb-2">
           {name}
         </h4>
-        <p className="text-[#4b5563] text-[13px] md:text-[14px] leading-[1.6] mb-3 pr-2">
+        <p className="text-[#374151] font-medium text-[14px] md:text-[15px] leading-[1.6] mb-4 md:mb-5">
           {text}
         </p>
-        <div className="flex gap-1.5">
+        <div className="flex justify-center md:justify-start gap-1.5">
           {[...Array(stars)].map((_, i) => (
-            <svg
-              key={i}
-              width="13"
-              height="13"
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 0L7.854 3.757L12 4.36L9 7.282L9.708 11.411L6 9.46L2.292 11.411L3 7.282L0 4.36L4.146 3.757L6 0Z"
-                fill="#FBBF24"
-              />
-            </svg>
+            <Star key={i} />
           ))}
         </div>
       </div>
@@ -50,57 +43,130 @@ const ReviewCard = ({ active, name, text, image, bgColor, stars }) => {
 };
 
 const Reviews = () => {
+  const containerRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(1);
+
   const reviewsData = [
     {
       name: "Jenny Wilson",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/images/user1.png",
+      image: "/images/user6.png",
       bgColor: "bg-[#1E293B]",
       stars: 4,
     },
     {
       name: "Esther Howard",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/images/user2.png",
+      image: "/images/user4.png",
       bgColor: "bg-[#FFC554]",
       stars: 4,
     },
     {
       name: "Robert Fox",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/images/user3.png",
+      image: "/images/user5.png",
       bgColor: "bg-[#8BCBF1]",
       stars: 4,
     },
   ];
 
-  return (
-    <section className="w-full pt-16 md:pt-24 pb-10 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-24 mb-14 text-center">
-        <h2 className="text-3xl md:text-[36px] font-bold text-[#1A1A1A] mb-5 tracking-tight">
-          Check Our Clients <span className="text-primary font-medium">Review</span>
-        </h2>
-        <p className="text-[#4b5563] text-[14px] md:text-[15px] max-w-[800px] mx-auto leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
+  // Set initial scroll to middle item
+  useEffect(() => {
+    if (containerRef.current) {
+      const container = containerRef.current;
+      setTimeout(() => {
+        const itemWidth =
+          typeof window !== "undefined" && window.innerWidth < 768 ? 340 : 640;
+        const targetScroll =
+          container.scrollWidth / 2 - container.clientWidth / 2;
+        container.scrollTo({ left: targetScroll, behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
 
-      <div className="w-full relative mt-8 pb-10">
-        <div className="flex justify-start xl:justify-center items-center gap-6 px-6 md:px-10 overflow-x-auto snap-x snap-mandatory py-4 hide-scrollbar">
+  // Update active card on horizontal scroll natively
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const container = containerRef.current;
+      const centerPos = container.scrollLeft + container.clientWidth / 2;
+
+      let closestIdx = activeIndex;
+      let minDistance = Infinity;
+
+      // Children matching review cards are indices 1, 2, 3 (0 and 4 are spacer divs)
+      Array.from(container.children).forEach((child, idx) => {
+        const childCenter = child.offsetLeft + child.clientWidth / 2;
+        const dist = Math.abs(childCenter - centerPos);
+        if (dist < minDistance && idx > 0 && idx <= reviewsData.length) {
+          minDistance = dist;
+          closestIdx = idx - 1;
+        }
+      });
+
+      if (closestIdx !== activeIndex) {
+        setActiveIndex(closestIdx);
+      }
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll, { passive: true });
+      return () => container.removeEventListener("scroll", handleScroll);
+    }
+  }, [activeIndex, reviewsData.length]);
+
+  return (
+    <section className="w-full pt-20 md:pt-32 pb-16 overflow-hidden bg-white">
+      <SectionHeader
+        title="Check Our Clients "
+        highlightedText="Review"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      />
+
+      <div className="w-full relative mt-16">
+        {/* Transparent Edge White Bleed Masks */}
+        <div className="absolute top-0 left-0 w-[80px] md:w-[25vw] max-w-[350px] h-full bg-gradient-to-r from-white via-white/80 to-transparent z-30 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[80px] md:w-[25vw] max-w-[350px] h-full bg-gradient-to-l from-white via-white/80 to-transparent z-30 pointer-events-none" />
+
+        {/* Scroll Container */}
+        <div
+          ref={containerRef}
+          className="flex items-center gap-5 md:gap-8 overflow-x-auto snap-x snap-mandatory py-[30px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] scroll-smooth w-full px-0"
+        >
+          {/* Spatial padding divs to allow first and last elements to securely snap to the absolute center of viewport */}
+          <div
+            className="shrink-0 w-[calc(50vw-170px)] md:w-[calc(50vw-320px)]"
+            aria-hidden="true"
+          />
+
           {reviewsData.map((review, i) => (
-            <div key={i} className="snap-center">
-              <ReviewCard
-                active={i === 1}
-                name={review.name}
-                text={review.text}
-                image={review.image}
-                bgColor={review.bgColor}
-                stars={review.stars}
-              />
-            </div>
+            <ReviewCard
+              key={i}
+              active={activeIndex === i}
+              name={review.name}
+              text={review.text}
+              image={review.image}
+              bgColor={review.bgColor}
+              stars={review.stars}
+              onClick={() => {
+                if (containerRef.current) {
+                  const cardWidth = window.innerWidth < 768 ? 340 : 640;
+                  const gap = window.innerWidth < 768 ? 20 : 32;
+                  const targetScroll = i * (cardWidth + gap);
+                  containerRef.current.scrollTo({
+                    left: targetScroll,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+            />
           ))}
+
+          <div
+            className="shrink-0 w-[calc(50vw-170px)] md:w-[calc(50vw-320px)]"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </section>
