@@ -6,3 +6,7 @@ export { default as GitHubLogo } from "./GitHubLogo";
 export { default as RoundedPlus } from "./RoundedPlus";
 export { default as RoundedMinus } from "./RoundedMinus";
 export { default as Star } from "./Star";
+export { default as Check } from "./Check";
+export { default as Support } from "./Support";
+export { default as ConnectUser } from "./ConnectUser";
+export { default as AddUser } from "./AddUser";

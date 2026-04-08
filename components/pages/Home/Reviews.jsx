@@ -15,13 +15,13 @@ const ReviewCard = ({ active, name, text, image, bgColor, stars, onClick }) => {
       }`}
     >
       <div
-        className={`w-[85px] h-[85px] md:w-[120px] md:h-[120px] shrink-0 rounded-full overflow-hidden flex items-center justify-center ${bgColor}`}
+        className={`w-[85px] h-[85px] size-[100px] shrink-0 rounded-full overflow-hidden flex items-center justify-center ${bgColor}`}
       >
         <Image
           src={image}
           alt={name}
-          width={120}
-          height={120}
+          width={100}
+          height={100}
           className="w-full h-full object-cover"
         />
       </div>
@@ -126,8 +126,8 @@ const Reviews = () => {
 
       <div className="w-full relative mt-16">
         {/* Transparent Edge White Bleed Masks */}
-        <div className="absolute top-0 left-0 w-[80px] md:w-[25vw] max-w-[350px] h-full bg-gradient-to-r from-white via-white/80 to-transparent z-30 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[80px] md:w-[25vw] max-w-[350px] h-full bg-gradient-to-l from-white via-white/80 to-transparent z-30 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-[80px] md:w-[25vw] max-w-[350px] h-full bg-linear-to-r from-white via-white/80 to-transparent z-30 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[80px] md:w-[25vw] max-w-[350px] h-full bg-linear-to-l from-white via-white/80 to-transparent z-30 pointer-events-none" />
 
         {/* Scroll Container */}
         <div
