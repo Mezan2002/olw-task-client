@@ -18,7 +18,7 @@ const navLinks = [
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <nav className="w-full bg-white shadow-[0px_4px_62px_0px_#FAC4D2A1]">
+    <nav className="w-full bg-white shadow-[0px_4px_62px_0px_#FAC4D2A1] sticky top-0 z-50">
       <div className="mx-auto flex h-[90px] max-w-[1440px] items-center justify-between px-6 lg:px-24">
         {/* Logo */}
         <div className="flex flex-1 justify-start">
