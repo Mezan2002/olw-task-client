@@ -42,7 +42,7 @@ const GettingStarted = () => {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       />
 
-      <div className="mt-[42px] mx-24 flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-14 lg:gap-8 xl:gap-[50px] pt-4">
+      <div className="mt-[42px] w-[80%] mx-auto flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-14 lg:gap-8 xl:gap-[50px] pt-4">
         {steps.map((step, idx) => (
           <div
             key={idx}
@@ -60,7 +60,7 @@ const GettingStarted = () => {
               </div>
             </div>
             {/* External Label */}
-            <p className="mt-8 text-center text-xl font-semibold text-black leading-relaxed px-4">
+            <p className="mt-8 text-center text-xl font-semibold text-black leading-normal px-4">
               {step.title}
             </p>
           </div>
