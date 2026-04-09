@@ -7,24 +7,22 @@ const Hero = () => {
     <section className="relative w-full pt-16 md:pt-28 flex flex-col justify-between overflow-hidden min-h-[calc(100vh-90px)]">
       {/* Background Grid & Gradient */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none mb-56"
         style={{
           backgroundImage: `
             linear-gradient(to right, #F5F5F5 1px, transparent 1px),
             linear-gradient(to bottom, #F5F5F5 1px, transparent 1px)
           `,
-          backgroundSize: "95px 95px",
+          backgroundSize: "80px 80px",
         }}
       />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-[800px] h-[300px] bg-[#FFEBF0] blur-[100px] rounded-[100%] z-0 pointer-events-none" />
+      <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[80%] max-w-[800px] h-[300px] bg-white blur-[100px] rounded-[100%] z-0 pointer-events-none" />
 
       {/* Hero Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center px-6 max-w-[1440px] mx-auto w-full pt-10 md:pt-4">
-        {/* Decorative Floating Elements */}
-        {/* Placed relative to the container for stable positioning */}
         <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
           {/* Airbnb Card */}
-          <div className="absolute top-[4%] left-[14%] w-[120px] h-[120px] lg:w-[140px] lg:h-[140px]">
+          <div className="absolute top-[4%] left-[14%] size-28">
             <Image
               src="/images/airbnb.png"
               alt="Airbnb"
@@ -35,7 +33,7 @@ const Hero = () => {
           </div>
 
           {/* Booking Card */}
-          <div className="absolute top-[8%] right-[15%] w-[110px] h-[110px] lg:w-[130px] lg:h-[130px]">
+          <div className="absolute top-[8%] right-[15%] size-16">
             <Image
               src="/images/booking.png"
               alt="Booking"
@@ -46,7 +44,7 @@ const Hero = () => {
           </div>
 
           {/* Vrbo Card */}
-          <div className="absolute bottom-[16%] left-[20%] w-[110px] h-[110px] lg:w-[130px] lg:h-[130px]">
+          <div className="absolute bottom-[16%] left-[20%] size-16">
             <Image
               src="/images/vrbo.png"
               alt="Vrbo"
@@ -57,7 +55,7 @@ const Hero = () => {
           </div>
 
           {/* Tripadvisor Card */}
-          <div className="absolute bottom-[14%] right-[20%] w-[120px] h-[120px] lg:w-[140px] lg:h-[140px]">
+          <div className="absolute bottom-[14%] right-[20%] size-20">
             <Image
               src="/images/tripadvisor-transparent.png"
               alt="Tripadvisor"
@@ -133,7 +131,7 @@ const Hero = () => {
               Property Management
             </span>
           </h1>
-          <p className="text-[#374151] text-[15px] md:text-[15px] font-medium max-w-[620px] mx-auto mb-10 leading-[1.6]">
+          <p className="text-black text-sm font-medium max-w-[85%] mx-auto mb-10 leading-[1.6]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -146,7 +144,7 @@ const Hero = () => {
             </Button>
             <Link
               href="/pricing"
-              className="text-[14.5px] font-bold text-[#111827] underline underline-offset-[5px] decoration-[1.5px] hover:text-primary transition-colors"
+              className="text-sm font-medium text-black underline underline-offset-[5px] decoration-[1.5px] hover:text-primary transition-colors"
             >
               See Pricing
             </Link>
@@ -155,8 +153,8 @@ const Hero = () => {
       </div>
 
       {/* Trusted By Section */}
-      <div className="relative z-10 w-full mt-24 md:mt-32">
-        <p className="text-center font-bold text-gray-900 text-[18px] mb-8 tracking-tight">
+      <div className="relative z-10 w-full mt-14">
+        <p className="text-center font-semibold text-black text-xl mb-8 tracking-tight">
           Trusted by leaders in 50+ industries
         </p>
         <div className="w-full bg-[#F6F7F9] py-8 border-y border-gray-100/50">
