@@ -21,45 +21,45 @@ const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center px-6 max-w-[1440px] mx-auto w-full pt-10 md:pt-4">
         <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
-          {/* Airbnb Card */}
           <div className="absolute top-[4%] left-[14%] size-28">
             <Image
               src="/images/airbnb.png"
               alt="Airbnb"
               fill
+              sizes="(max-width: 768px) 100vw, 150px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* Booking Card */}
           <div className="absolute top-[8%] right-[15%] size-16">
             <Image
               src="/images/booking.png"
               alt="Booking"
               fill
+              sizes="(max-width: 768px) 100vw, 150px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* Vrbo Card */}
           <div className="absolute bottom-[16%] left-[20%] size-16">
             <Image
               src="/images/vrbo.png"
               alt="Vrbo"
               fill
+              sizes="(max-width: 768px) 100vw, 150px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* Tripadvisor Card */}
           <div className="absolute bottom-[14%] right-[20%] size-20">
             <Image
               src="/images/tripadvisor-transparent.png"
               alt="Tripadvisor"
               fill
+              sizes="(max-width: 768px) 100vw, 150px"
               className="object-contain"
               priority
             />
@@ -125,13 +125,13 @@ const Hero = () => {
         </div>
 
         <div className="max-w-[760px] mx-auto text-center relative z-10 mt-6 md:mt-12">
-          <h1 className="text-5xl leading-[1.1] font-bold text-black mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl leading-[1.1] font-bold text-black mb-6 tracking-tight">
             Airbnb Assistants For <br className="hidden md:block" />{" "}
-            <span className="text-4xl font-medium text-black">
+            <span className="text-3xl md:text-4xl font-medium text-black">
               Property Management
             </span>
           </h1>
-          <p className="text-black text-sm font-medium max-w-[85%] mx-auto mb-10 leading-[1.6]">
+          <p className="text-black text-sm font-medium w-full md:max-w-[85%] mx-auto mb-10 leading-[1.6]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -154,16 +154,17 @@ const Hero = () => {
 
       {/* Trusted By Section */}
       <div className="relative z-10 w-full mt-14">
-        <p className="text-center font-semibold text-black text-xl mb-8 tracking-tight">
+        <p className="text-center font-semibold text-black text-lg md:text-xl mb-6 md:mb-8 tracking-tight px-4 md:px-0">
           Trusted by leaders in 50+ industries
         </p>
         <div className="w-full bg-[#F6F7F9] py-8 border-y border-gray-100/50">
-          <div className="max-w-[1400px] mx-auto flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-16 gap-y-10 px-6">
+          <div className="max-w-[1400px] mx-auto flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-8 md:gap-y-10 px-4 md:px-6">
             <div className="relative h-8 w-[100px]">
               <Image
                 src="/images/airbnb-full.png"
                 alt="Airbnb"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />
@@ -173,6 +174,7 @@ const Hero = () => {
                 src="/images/booking-full.png"
                 alt="Booking.com"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />
@@ -182,6 +184,7 @@ const Hero = () => {
                 src="/images/vrbo-full.png"
                 alt="Vrbo"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />
@@ -191,6 +194,7 @@ const Hero = () => {
                 src="/images/tripadvisor-full.png"
                 alt="Tripadvisor"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />
@@ -201,6 +205,7 @@ const Hero = () => {
                 src="/images/agoda.png"
                 alt="Agoda"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />
@@ -210,6 +215,7 @@ const Hero = () => {
                 src="/images/expedia.png"
                 alt="Expedia"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />
@@ -219,6 +225,7 @@ const Hero = () => {
                 src="/images/home-to-go.png"
                 alt="Home to go"
                 fill
+                sizes="(max-width: 768px) 100vw, 200px"
                 className="object-contain"
                 priority={true}
               />

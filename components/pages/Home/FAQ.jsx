@@ -73,15 +73,15 @@ const FAQ = () => {
 
   return (
     <section className="w-full max-w-[1440px] mx-auto px-6 lg:px-24 mt-8">
-      <div className="w-full bg-[#F9FAFB] rounded-2xl py-20 px-6 sm:px-12 md:px-20 lg:px-[120px]">
+      <div className="w-full bg-[#F9FAFB] rounded-2xl py-12 md:py-20 px-6 sm:px-12 md:px-20 lg:px-[120px]">
         <div className="text-center mb-10">
-          <h4 className="text-4xl font-semibold text-gray-900 mb-5">
+          <h4 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-5">
             Frequently asked{" "}
-            <span className="text-4xl text-primary font-semibold">
+            <span className="text-3xl md:text-4xl text-primary font-semibold">
               questions
             </span>
           </h4>
-          <p className="text-black text-xl">
+          <p className="text-black text-lg md:text-xl">
             Everything you need to know about the product and billing.
           </p>
         </div>

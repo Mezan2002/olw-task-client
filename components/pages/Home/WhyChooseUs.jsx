@@ -13,10 +13,10 @@ const features = [
 const WhyChooseUs = () => {
   return (
     <section className="w-full max-w-[1440px] mx-auto px-6 lg:px-24 py-16">
-      <div className="w-full bg-[#FCF0F3] border border-[#F8BECD] rounded-[24px] px-8 sm:px-12 md:p-20 py-12 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+      <div className="w-full bg-[#FCF0F3] border border-[#F8BECD] rounded-[24px] px-6 sm:px-12 md:p-20 py-10 md:py-12 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
         {/* Left Side Content */}
         <div className="w-full lg:w-[45%] flex flex-col items-start max-w-[480px]">
-          <h4 className="text-4xl font-bold text-black leading-tight mb-6 tracking-tight">
+          <h4 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-6 tracking-tight">
             Few Reasons Why you
             <br className="hidden lg:block" /> Choose us?
           </h4>

@@ -81,7 +81,7 @@ const Pricing = () => {
             Pay Yearly
           </span>
 
-          <div className="absolute -right-[70px] md:-right-[120px] top-1/2 -translate-y-[45%]">
+          <div className="absolute right-0 md:block hidden md:-right-[120px] top-1/2 -translate-y-[45%]">
             <Image
               src="/images/save-25.png"
               alt="Save 25%"
